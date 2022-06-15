@@ -8,8 +8,8 @@
         <version>2.7.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.yuge</groupId>
-    <artifactId>ing-seata</artifactId>
+    <groupId>com.yuge.ing</groupId>
+    <artifactId>seata</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>ing seata</name>
@@ -19,6 +19,7 @@
         <spring-boot.version>2.7.0</spring-boot.version>
         <spring-cloud.version>2021.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
+        <org-mapstruct-version>1.4.2.Final</org-mapstruct-version>
     </properties>
 
     <dependencyManagement>
@@ -44,6 +45,23 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${org-mapstruct-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${org-mapstruct-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${org-mapstruct-version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

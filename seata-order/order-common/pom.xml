@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.yuge.ing</groupId>
-        <artifactId>seata</artifactId>
+        <artifactId>seata-order</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.yuge.ing</groupId>
-    <artifactId>seata-order</artifactId>
+    <artifactId>seata-order-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>seata-order</name>
-    <description>Seata Order</description>
+    <name>seata-order-common</name>
+    <description>seata-order-common</description>
 
-    <modules>
-        <module>order-api</module>
-        <module>order-common</module>
-        <module>order-server</module>
-    </modules>
+    <properties>
+    </properties>
+
+    <dependencies>
+    </dependencies>
+
 
 </project>

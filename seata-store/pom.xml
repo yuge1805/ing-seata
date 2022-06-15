@@ -9,16 +9,16 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.yuge.ing</groupId>
-    <artifactId>seata-order</artifactId>
+    <artifactId>seata-store</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>seata-order</name>
-    <description>Seata Order</description>
+    <name>seata-store</name>
+    <description>Seata store</description>
 
     <modules>
-        <module>order-api</module>
-        <module>order-common</module>
-        <module>order-server</module>
+        <module>store-api</module>
+        <module>store-common</module>
+        <module>store-server</module>
     </modules>
 
 </project>
