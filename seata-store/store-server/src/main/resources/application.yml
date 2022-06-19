@@ -5,7 +5,18 @@ spring:
     name: store
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ing_seata_store?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+#    url: jdbc:mysql://localhost:3306/ing_seata_store?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/ing_seata_store
     username: root
     password: root
-
+  profiles:
+    include: seata
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        group: SEATA_GROUP
+        cluster-name: default
+#logging:
+#  level:
+#    org.apache: debug

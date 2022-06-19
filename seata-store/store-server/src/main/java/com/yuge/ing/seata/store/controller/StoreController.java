@@ -1,10 +1,10 @@
 package com.yuge.ing.seata.store.controller;
 
+import com.yuge.ing.commons.result.CommonResponse;
+import com.yuge.ing.seata.store.common.param.StoreParam;
 import com.yuge.ing.seata.store.po.StoreEntity;
 import com.yuge.ing.seata.store.service.StoreService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -25,6 +25,15 @@ public class StoreController {
     @GetMapping
     public List<StoreEntity> list() {
         return storeService.list();
+    }
+
+    @PostMapping
+    public CommonResponse<Long> add(@RequestBody StoreParam storeParam) {
+        Long id = storeService.add(storeParam);
+        if (id%2 == 0) {
+            return CommonResponse.error("-1", "It's error!");
+        }
+        return CommonResponse.success(id);
     }
 
 }

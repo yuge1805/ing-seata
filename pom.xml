@@ -20,7 +20,22 @@
         <spring-cloud.version>2021.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
         <org-mapstruct-version>1.4.2.Final</org-mapstruct-version>
+        <hutool-all.version>5.8.3</hutool-all.version>
+        <commons-core.version>0.0.1-SNAPSHOT</commons-core.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool-all.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yuge.cloud</groupId>
+            <artifactId>commons-core</artifactId>
+            <version>${commons-core.version}</version>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
