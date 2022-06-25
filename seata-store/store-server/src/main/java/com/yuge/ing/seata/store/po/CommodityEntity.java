@@ -1,4 +1,4 @@
-package com.yuge.ing.seata.order.po;
+package com.yuge.ing.seata.store.po;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -12,7 +12,7 @@ import lombok.Setter;
 
 /**
  * <p>
- * 
+ * 商品
  * </p>
  *
  * @author yuge
@@ -20,25 +20,23 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("biz_order")
-public class OrderEntity implements Serializable {
+@TableName("biz_commodity")
+public class CommodityEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    private String content;
-
-    private Integer type;
-
     /**
-     * 创建时间
+     * 商品名称
      */
+    private String name;
+
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime crtTime;
 
-//    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updTime;
 
     /**

@@ -22,6 +22,8 @@
         <org-mapstruct-version>1.4.2.Final</org-mapstruct-version>
         <hutool-all.version>5.8.3</hutool-all.version>
         <commons-core.version>0.0.1-SNAPSHOT</commons-core.version>
+        <!-- seata 1.4.2  LocalDataTime jackson 序列化存在问题-->
+        <mysql-connector-java.version>8.0.22</mysql-connector-java.version>
     </properties>
 
     <dependencies>
@@ -75,6 +77,12 @@
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-jdk8</artifactId>
                 <version>${org-mapstruct-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
             </dependency>
 
         </dependencies>

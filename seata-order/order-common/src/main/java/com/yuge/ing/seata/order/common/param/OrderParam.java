@@ -3,7 +3,7 @@ package com.yuge.ing.seata.order.common.param;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -23,5 +23,6 @@ public class OrderParam {
 
     private Integer type;
 
+    private List<OrderItemParam> itemList;
 
 }

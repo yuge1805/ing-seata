@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yuge.ing.seata.store.mapper.StoreMapper">
+<mapper namespace="com.yuge.ing.seata.store.mapper.StoreLogMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.yuge.ing.seata.store.po.StoreEntity">
+    <resultMap id="BaseResultMap" type="com.yuge.ing.seata.store.po.StoreLogEntity">
         <id column="id" property="id" />
         <result column="commodity_id" property="commodityId" />
+        <result column="commodity_name" property="commodityName" />
         <result column="amount" property="amount" />
         <result column="crt_time" property="crtTime" />
-        <result column="upd_time" property="updTime" />
-        <result column="deleted" property="deleted" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, commodity_id, amount, crt_time, upd_time, deleted
+        id, commodity_id, commodity_name, amount, crt_time
     </sql>
 
 </mapper>

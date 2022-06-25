@@ -1,8 +1,10 @@
 package com.yuge.ing.seata.store.service;
 
-import com.yuge.ing.seata.store.common.param.StoreParam;
+import com.yuge.ing.seata.store.common.param.CommodityInboundParam;
 import com.yuge.ing.seata.store.po.StoreEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,6 +16,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface StoreService extends IService<StoreEntity> {
 
-    Long add(StoreParam storeParam);
+    Long add(CommodityInboundParam storeParam);
+
+    List<StoreEntity> queryByCommodityId(List<Long> commodityIdList);
 
 }

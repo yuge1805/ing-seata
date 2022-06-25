@@ -22,8 +22,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Long add(OrderParam OrderParam) {
-        OrderEntity entity = OrderConverter.INSTANCE.paramToEntity(OrderParam);
+    public Long add(OrderParam orderParam) {
+        OrderEntity entity = OrderConverter.INSTANCE.paramToEntity(orderParam);
         this.save(entity);
         return entity.getId();
     }

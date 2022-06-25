@@ -1,6 +1,5 @@
 package com.yuge.ing.seata.order.controller;
 
-import cn.hutool.db.sql.Order;
 import com.yuge.ing.commons.result.CommonResponse;
 import com.yuge.ing.seata.order.businsess.OrderBusinessService;
 import com.yuge.ing.seata.order.common.param.OrderParam;
@@ -35,14 +34,14 @@ public class OrderController {
     }
 
     @PostMapping
-    public CommonResponse<Long> add(@RequestBody OrderParam orderParam) {
-        Long id = orderService.add(orderParam);
-        return CommonResponse.success(id);
+    public CommonResponse<Boolean> add(@RequestBody OrderParam orderParam) {
+        orderBusinessService.add(orderParam);
+        return CommonResponse.success(true);
     }
 
     @PostMapping("/business")
     public CommonResponse<Boolean> addBusiness() {
-        orderBusinessService.add();
+        orderBusinessService.addForTest();
         return CommonResponse.success(true);
     }
 

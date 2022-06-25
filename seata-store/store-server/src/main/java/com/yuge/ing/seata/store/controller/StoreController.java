@@ -1,7 +1,9 @@
 package com.yuge.ing.seata.store.controller;
 
 import com.yuge.ing.commons.result.CommonResponse;
-import com.yuge.ing.seata.store.common.param.StoreParam;
+import com.yuge.ing.seata.store.business.StoreBusiness;
+import com.yuge.ing.seata.store.common.param.CommodityInboundParam;
+import com.yuge.ing.seata.store.common.param.CommodityOutboundParam;
 import com.yuge.ing.seata.store.po.StoreEntity;
 import com.yuge.ing.seata.store.service.StoreService;
 import org.springframework.web.bind.annotation.*;
@@ -22,18 +24,47 @@ public class StoreController {
     @Resource
     private StoreService storeService;
 
+    @Resource
+    private StoreBusiness storeBusiness;
+
     @GetMapping
     public List<StoreEntity> list() {
         return storeService.list();
     }
 
+    @Deprecated
     @PostMapping
-    public CommonResponse<Long> add(@RequestBody StoreParam storeParam) {
+    public CommonResponse<Long> add(@RequestBody CommodityInboundParam storeParam) {
         Long id = storeService.add(storeParam);
         if (id%2 == 0) {
             return CommonResponse.error("-1", "It's error!");
         }
         return CommonResponse.success(id);
     }
+
+    /**
+     * 出库
+     *
+     * @param outboundParam
+     * @return
+     */
+    @PostMapping("/outbound")
+    public CommonResponse<Boolean> outbound(@RequestBody CommodityOutboundParam outboundParam) {
+        storeBusiness.outbound(outboundParam);
+        return CommonResponse.success(true);
+    }
+
+    /**
+     * 初始化
+     *
+     * @param inboundParam
+     * @return
+     */
+    @PostMapping("/init")
+    public CommonResponse<Boolean> init(@RequestBody CommodityInboundParam inboundParam) {
+        storeBusiness.inbound(inboundParam);
+        return CommonResponse.success(true);
+    }
+
 
 }

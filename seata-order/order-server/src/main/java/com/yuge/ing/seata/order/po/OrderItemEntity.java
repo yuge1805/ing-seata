@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,17 +21,28 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("biz_order")
-public class OrderEntity implements Serializable {
+@TableName("biz_order_item")
+public class OrderItemEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    private String content;
+    /**
+     * 订单id
+     */
+    private Long orderId;
 
-    private Integer type;
+    /**
+     * 商品id
+     */
+    private Long commodityId;
+
+    /**
+     * 数量
+     */
+    private BigDecimal amount;
 
     /**
      * 创建时间
@@ -38,7 +50,7 @@ public class OrderEntity implements Serializable {
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime crtTime;
 
-//    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updTime;
 
     /**
