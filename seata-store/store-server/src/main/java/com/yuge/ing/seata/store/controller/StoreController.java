@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 库存
@@ -30,6 +31,12 @@ public class StoreController {
     @GetMapping
     public List<StoreEntity> list() {
         return storeService.list();
+    }
+
+    @GetMapping("/{id}")
+    public CommonResponse<StoreEntity> detail(@PathVariable("id") Long id) {
+        Optional<StoreEntity> optional = storeService.queryById(id);
+        return CommonResponse.success(optional.get());
     }
 
     @Deprecated

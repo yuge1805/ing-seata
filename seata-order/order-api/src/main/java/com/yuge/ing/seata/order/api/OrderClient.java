@@ -6,10 +6,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(value = "order", contextId = "orderClient")
+@FeignClient(value = "order", contextId = "orderClient", path = "/order")
 public interface OrderClient {
 
     @PostMapping
-    CommonResponse<Long> add(@RequestBody OrderParam orderParam);
+    CommonResponse<Boolean> add(@RequestBody OrderParam orderParam);
 
 }

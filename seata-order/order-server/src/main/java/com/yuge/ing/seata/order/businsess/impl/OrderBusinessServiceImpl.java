@@ -44,7 +44,7 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
      * @param orderParam
      */
     @GlobalTransactional(rollbackFor = Exception.class)
-//    @Transactional(rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void add(OrderParam orderParam) {
         // order
@@ -73,6 +73,7 @@ public class OrderBusinessServiceImpl implements OrderBusinessService {
                     return new CommodityAmountParam(orderItemParam.getCommodityId(), orderItemParam.getAmount());
                 }).collect(Collectors.toList());
         commodityOutboundParam.setDetailList(detailList);
+        commodityOutboundParam.setOrderId(orderId);
         CommonResponse<Boolean> response = storeClient.outbound(commodityOutboundParam);
         if (!response.isSuccess()) {
             throw new IllegalStateException(String.format("storeClient.outbound error! code: %s, msg: %s", response.getCode(), response.getMsg()));

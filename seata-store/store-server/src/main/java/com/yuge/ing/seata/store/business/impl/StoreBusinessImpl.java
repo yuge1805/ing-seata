@@ -127,6 +127,7 @@ public class StoreBusinessImpl implements StoreBusiness {
         storeService.updateBatchById(updateList);
         // 增加库存日志
         this.saveLog(detailList);
+        log.info("outbound success, orderId: {}", commodityOutboundParam.getOrderId());
     }
 
     private void saveLog(List<CommodityAmountParam> detailList) {

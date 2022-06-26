@@ -4,40 +4,22 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.yuge.ing</groupId>
-        <artifactId>seata-store</artifactId>
+        <artifactId>seata-portal</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.yuge.ing</groupId>
-    <artifactId>seata-store-server</artifactId>
+    <artifactId>seata-portal-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>seata-store-server</name>
-    <description>seata-store-server</description>
+    <name>seata-portal-server</name>
+    <description>seata-portal-server</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.yuge.ing</groupId>
-            <artifactId>seata-store-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
         </dependency>
 
         <dependency>
@@ -65,11 +47,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
         </dependency>
@@ -80,6 +57,17 @@
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-jdk8</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yuge.ing</groupId>
+            <artifactId>seata-order-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
 
     </dependencies>

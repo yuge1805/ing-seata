@@ -20,9 +20,16 @@ import java.util.List;
 public class CommodityOutboundParam {
 
     /**
+     * 订单Id
+     */
+    private Long orderId;
+
+    /**
      * 明细列表
      */
     private List<CommodityAmountParam> detailList;
 
-
+    public CommodityOutboundParam(List<CommodityAmountParam> detailList) {
+        this.detailList = detailList;
+    }
 }

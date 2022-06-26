@@ -9,10 +9,12 @@ import com.yuge.ing.seata.store.po.StoreEntity;
 import com.yuge.ing.seata.store.mapper.StoreMapper;
 import com.yuge.ing.seata.store.service.StoreService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.seata.spring.annotation.GlobalLock;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * <p>
@@ -43,4 +45,20 @@ public class StoreServiceImpl extends ServiceImpl<StoreMapper, StoreEntity> impl
                 .getWrapper());
     }
 
+
+    /**
+     * 防止脏读 @GlobalLock + for update
+     *
+     * @param id
+     * @return
+     */
+    @GlobalLock
+    @Override
+    public Optional<StoreEntity> queryById(Long id) {
+        List<StoreEntity> list = this.list(this.lambdaQuery().eq(StoreEntity::getId, id).last(" for update").getWrapper());
+        if (CollectionUtil.isEmpty(list)) {
+            return Optional.empty();
+        }
+        return Optional.of(list.get(0));
+    }
 }

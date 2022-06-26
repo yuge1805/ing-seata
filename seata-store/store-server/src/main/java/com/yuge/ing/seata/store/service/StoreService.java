@@ -5,6 +5,7 @@ import com.yuge.ing.seata.store.po.StoreEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * <p>
@@ -19,5 +20,7 @@ public interface StoreService extends IService<StoreEntity> {
     Long add(CommodityInboundParam storeParam);
 
     List<StoreEntity> queryByCommodityId(List<Long> commodityIdList);
+
+    Optional<StoreEntity> queryById(Long id);
 
 }
